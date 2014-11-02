@@ -1,4 +1,5 @@
-!= partial("_nav")
+!= partial("_nav", public._data.current )
+!= partial("_hero", public._data.current )
 
 div.main-width
     if public._data.current.offmonth

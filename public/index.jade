@@ -1,7 +1,7 @@
 != partial("_nav", public._data.current )
 != partial("_hero", public._data.current )
 
-div.main-width
+div.jsla-toplevel-container
     if public._data.current.offmonth
 
         div.off-month.lightning
@@ -42,12 +42,13 @@ div.main-width
 
 
     else
-        != partial("_top", {datetime: public._data.current.datetime, host: public._data.current.host.name, titoUrl: public._data.current.titoUrl, sponsors: public._data.current.sponsors, current: true})
 
         h2.speakers Speakers
         each speaker in public._data.current.speakers
             != partial("_speaker", {title: speaker.title, speaker: speaker.name, description: speaker.description, twitter: speaker.twitter, github: speaker.github, image: speaker.image, video: speaker.video})
 
+        != partial( "_sponsors-box", { sponsors: public._data.current.sponsors } )
+        
         != partial("_want-to-present")
         != partial("_info", {name: public._data.current.host.name, url: public._data.current.host.url, mapUrl: public._data.current.host.mapUrl, address: public._data.current.host.address, misc: public._data.current.host.misc, mapIframeUrl: public._data.current.host.mapIframeUrl })
 

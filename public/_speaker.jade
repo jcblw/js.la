@@ -1,13 +1,13 @@
-div.keynote.clearfix
-    img.keynote-image(src="/images/speakers/#{image}", alt="keynote speaker", width="130")
-    div.keynote-detail
-        h1= title
-        h2= speaker
+li.jsla-speaker.clearfix
+    img.jsla-avatar(src="/images/speakers/#{image}", alt="keynote speaker", width="130")
+    div.jsla-speaker-details
+        h1.jsla-speaker-title= title
+        h2.jsla-speaker-name= speaker
         div.twitter Twitter: 
             a(href="https://twitter.com/#{twitter}")@#{twitter}
         div.github Github: 
             a(href="https://github.com/#{github}") #{github}
-        div.description= description
+        div.jsla-speaker-description= description
 
         if videoimg
             a.fancybox-media(href="http://vimeo.com/#{video}")

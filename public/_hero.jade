@@ -1,18 +1,24 @@
 header.jsla-hero.layer-1
-    div.jsla-hero-content
-        a.jsla-hero-logo( href="/" )
-            img(src='/images/logotype-trans.png')
-            span.jsla-tagline.jsla-large-text The Los Angeles Javascript meetup.
+    div.jsla-hero-table
+        div.jsla-hero-content.jsla-toplevel-container
 
-        p.jsla-hero-next.jsla-large-text
-            strong Next Event:
-            span  Thursday, Sept. 30th in Los Angeles
+            a.jsla-hero-logo( href="/" )
+                img(src='/images/logotype-trans.png')
+                span.jsla-tagline.jsla-large-text The Los Angeles Javascript meetup.
 
-        ul.jsla-hero-speakers
-            // loop here 
-            li
-                a speaker
+            p.jsla-hero-next.jsla-large-text
+                strong Next Event:
+                span= datetime
 
-        div.jsla-hero-buttons
-            a.pure-button.jsla-button-xlarge( href="#" ) RSVP for next event
-            a.pure-button.jsla-button-xlarge( href="#" ) Join mailing list
+            ul.jsla-hero-speakers.layer-2
+                // loop here 
+                each speaker in public._data.current.speakers
+                    != partial("_speaker-condensed", {title: speaker.title, speaker: speaker.name, description: speaker.description, twitter: speaker.twitter, github: speaker.github, image: speaker.image, video: speaker.video})
+
+            div.jsla-hero-buttons
+                a.pure-button.jsla-button-xlarge( href="#" ) RSVP for next event
+                a.pure-button.jsla-button-xlarge( href="#" ) Join mailing list
+
+            != partial( "_sponsors-box", { sponsors: sponsors } )
+
+div.jsla-hero-down-arrow.clearfix downarrow pls

@@ -11,6 +11,7 @@
 @import 'src/component/navigation';
 @import 'src/component/hero';
 @import 'src/component/speaker';
+@import 'src/component/sponsors-box';
 
 // base
 html,
@@ -18,4 +19,23 @@ body {
     min-height: 100%;
     height: 100%;
     background: @lightGrey;
+}
+
+.clearfix {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+.jsla-toplevel-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    .clearfix();
+}
+
+* {
+    box-sizing: border-box;
 }

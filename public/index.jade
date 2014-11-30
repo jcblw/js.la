@@ -43,15 +43,12 @@ div.jsla-toplevel-container
 
     else
 
-        h2.speakers Speakers
-        each speaker in public._data.current.speakers
-            != partial("_speaker", {title: speaker.title, speaker: speaker.name, description: speaker.description, twitter: speaker.twitter, github: speaker.github, image: speaker.image, video: speaker.video})
-
+        != partial("_speakers", { speakers: public._data.current.speakers } )
+        != partial("_map", public._data.current.host )
+        //- != partial("_info", {name: public._data.current.host.name, url: public._data.current.host.url, mapUrl: public._data.current.host.mapUrl, address: public._data.current.host.address, misc: public._data.current.host.misc, mapIframeUrl: public._data.current.host.mapIframeUrl })     
         != partial( "_sponsors-box", { sponsors: public._data.current.sponsors } )
-        
+    
         != partial("_want-to-present")
-        != partial("_info", {name: public._data.current.host.name, url: public._data.current.host.url, mapUrl: public._data.current.host.mapUrl, address: public._data.current.host.address, misc: public._data.current.host.misc, mapIframeUrl: public._data.current.host.mapIframeUrl })
-
         != partial("_footer", {titoUrl: public._data.current.titoUrl})
 
 

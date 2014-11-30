@@ -4,5 +4,13 @@ div.info-box.clearfix
         p This month we will be meeting at <a href="http://#{url}" title="#{name}">#{name}</a> located at <a href="#{mapUrl}">#{address}</a>.
         p #{misc}
         p The general format will be 2 planned talks followed by drinks.js around 9:15.
-    div.info-map
-        iframe(src="#{mapIframeUrl}", width="440", height="440", frameboarder="0", style="border:0")
+
+    div.jsla-venue-container.layer-2 
+        div.jsla-venue-info
+            h3
+                a( href="http://#{url}" title="#{name}")= name
+            p= address
+        div.jsla-venue-map( style="background-image: url(\"https://maps.googleapis.com/maps/api/staticmap?center=#{address}&zoom=16&size=640x400\");" )
+            div.jsla-marker here
+    //- div.info-map
+    //-     iframe(src="#{mapIframeUrl}", width="440", height="440", frameboarder="0", style="border:0")

@@ -1,0 +1,59 @@
+.jsla-speakers-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.jsla-speakers-list .jsla-speaker {
+    position: relative;
+    margin: 3em 0;
+    .jsla-avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+        background: white;
+    }
+    .jsla-speaker-details {
+        margin-left: 90px;
+    }
+
+    .jsla-speaker-info {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        line-height: 3em;
+        li {
+            float: left;
+            margin-right: 1em;
+        }
+    }
+
+    .jsla-speaker-content {
+        background: white;
+    }
+
+    .jsla-speaker-title {
+        padding: .7em;
+        margin: 0;
+        background: @secondary;
+        color: white;
+    }
+    // alternate title colors for some color splashes
+    &:nth-child( 3n + 2 ) .jsla-speaker-title {
+        background: @primary;
+        color: @darkGrey;
+    }   
+
+    &:nth-child( 3n + 3 ) .jsla-speaker-title {
+        background: @tertiary;
+        color: white;
+    }   
+
+    .jsla-speaker-description {
+        padding:  1em;
+    }
+
+}

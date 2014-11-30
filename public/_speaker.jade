@@ -1,13 +1,18 @@
 li.jsla-speaker.clearfix
-    img.jsla-avatar(src="/images/speakers/#{image}", alt="keynote speaker", width="130")
+    img.jsla-avatar.layer-2(src="/images/speakers/#{image}", alt="keynote speaker", width="130", alt=speaker )
     div.jsla-speaker-details
-        h1.jsla-speaker-title= title
-        h2.jsla-speaker-name= speaker
-        div.twitter Twitter: 
-            a(href="https://twitter.com/#{twitter}")@#{twitter}
-        div.github Github: 
-            a(href="https://github.com/#{github}") #{github}
-        div.jsla-speaker-description= description
+        ul.jsla-speaker-info.clearfix
+            li
+                span.jsla-speaker-name= speaker
+            if twitter
+                li 
+                    a(href="https://twitter.com/#{twitter}")@#{twitter}
+            if github
+                li 
+                    a(href="https://github.com/#{github}") #{github}
+        div.jsla-speaker-content.layer-2
+            h2.jsla-speaker-title= title
+            p.jsla-speaker-description= description
 
         if videoimg
             a.fancybox-media(href="http://vimeo.com/#{video}")

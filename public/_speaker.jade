@@ -6,10 +6,12 @@ li.jsla-speaker.clearfix
                 span.jsla-speaker-name= speaker
             if twitter
                 li 
-                    a(href="https://twitter.com/#{twitter}")@#{twitter}
+                    a(href="https://twitter.com/#{twitter}")
+                        i.icon-twitter
             if github
                 li 
-                    a(href="https://github.com/#{github}") #{github}
+                    a(href="https://github.com/#{github}")
+                        i.icon-github
         div.jsla-speaker-content.layer-2
             h2.jsla-speaker-title= title
             p.jsla-speaker-description= description

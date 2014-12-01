@@ -7,6 +7,7 @@ header.jsla-hero.layer-1
                 span.jsla-tagline.jsla-large-text The Los Angeles Javascript meetup.
 
             p.jsla-hero-next.jsla-large-text
+                i.icon-time
                 strong Next Event:
                 span= datetime
 
@@ -15,10 +16,8 @@ header.jsla-hero.layer-1
                 each speaker in public._data.current.speakers
                     != partial("_speaker-condensed", {title: speaker.title, speaker: speaker.name, description: speaker.description, twitter: speaker.twitter, github: speaker.github, image: speaker.image, video: speaker.video})
 
-            div.jsla-hero-buttons
-                a.pure-button.jsla-button-xlarge( href="#" ) RSVP for next event
-                a.pure-button.jsla-button-xlarge( href="#" ) Join mailing list
-
+            != partial( "_action-buttons", { titoUrl: titoUrl } )
             != partial( "_sponsors-box", { sponsors: sponsors } )
 
-div.jsla-hero-down-arrow.clearfix downarrow pls
+div.jsla-hero-down-arrow.clearfix 
+    i.icon-down

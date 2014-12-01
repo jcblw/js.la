@@ -6,6 +6,7 @@ div.jsla-venue-container.layer-2
             a( href="http://#{url}" title="#{name}")= name
         p= address
     div.jsla-venue-map( style="background-image: url(\"https://maps.googleapis.com/maps/api/staticmap?center=#{address}&zoom=16&size=640x400\");" )
-        div.jsla-marker here
+        div.jsla-marker     
+            i.icon-marker
     div.jsla-venue-info
         p= misc

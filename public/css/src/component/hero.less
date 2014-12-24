@@ -1,6 +1,8 @@
 .jsla-hero {
     min-height: 95%;
-    background: @primary;
+    background: url(http://placehold.it/100x100/f5dd3d/f5dd3d);
+    background-size: cover;
+    background-blend-mode: screen;
     text-align: center;
     display: table;
     width: 100%;
@@ -11,6 +13,16 @@
     margin-top: -1em;
     text-align: center;
     font-size: 4em;
+}
+
+.jsla-hero-next i {
+    margin: 0 .25em;
+    &.icon-marker {
+        color: @tertiary;
+    }
+}
+
+.jsla-hero-down-arrow a {
     color: @darkGrey;
 }
 
@@ -27,14 +39,15 @@
 
 .jsla-hero-logo {
     display: inline-block;
-    img {
-        vertical-align: middle;
-        width: 140px;
-    }
     .jsla-tagline {
         padding-left: 1em;
         display: inline-block;
     }
+}
+
+.jsla-logo-image{
+    vertical-align: middle;
+    width: 140px;
 }
 
 .jsla-hero-speakers {

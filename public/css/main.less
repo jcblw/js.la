@@ -15,6 +15,7 @@
 @import 'src/component/speakers';
 @import 'src/component/sponsors-box';
 @import 'src/component/map';
+@import 'src/component/photos';
 
 // base
 html,
@@ -32,11 +33,22 @@ body {
     }
 }
 
+.jsla-content-section {
+    background: white;    
+    padding: 1em 2em 2em;
+}
+
 .jsla-toplevel-container {
     position: relative;
     max-width: 600px;
     margin: 0 auto;
     .clearfix();
+    &.jsla-content-page {
+        margin: 50px auto;
+    }
+    &.jsla-event-container {
+        margin-top: 100px; // accomidates navbars
+    }
 }
 
 * {

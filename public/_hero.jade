@@ -1,15 +1,18 @@
-header.jsla-hero.layer-1
+header.jsla-hero.layer-1( data-photos=heroPhotos )
     div.jsla-hero-table
         div.jsla-hero-content.jsla-toplevel-container
 
             a.jsla-hero-logo( href="/" )
-                img(src='/images/logotype-trans.png')
+                img( src="/images/logo.svg" alt="JS.LA logo" class="jsla-logo-image" onerror="this.src='/images/logotype-trans.png'" )
                 span.jsla-tagline.jsla-large-text The Los Angeles Javascript meetup.
 
             p.jsla-hero-next.jsla-large-text
                 i.icon-time
-                strong Next Event:
-                span= datetime
+                a( href="#current-event" )
+                    strong Next Event:
+                    span= datetime
+                a( href="#location" )
+                    i.icon-marker
 
             ul.jsla-hero-speakers.layer-2
                 // loop here 
@@ -17,7 +20,9 @@ header.jsla-hero.layer-1
                     != partial("_speaker-condensed", {title: speaker.title, speaker: speaker.name, description: speaker.description, twitter: speaker.twitter, github: speaker.github, image: speaker.image, video: speaker.video})
 
             != partial( "_action-buttons", { titoUrl: titoUrl } )
-            != partial( "_sponsors-box", { sponsors: sponsors } )
+            if sponsors
+                != partial( "_sponsors-box", { sponsors: sponsors } )
 
 div.jsla-hero-down-arrow.clearfix 
-    i.icon-down
+    a( href="#current-event" )
+        i.icon-down

@@ -5,11 +5,11 @@
     text-align: left;
     .jsla-sponsors {
         list-style-type: none;
-        background: white;
         padding: 0;
         margin: 3px 0;
         display: table;
         .jsla-sponsor {
+            background: white;
             width: 275px;
             height: 100px;
             position: relative;
@@ -24,6 +24,10 @@
             }
             &:first-child {
                 border-right: 1px solid @lightGrey;
+            }
+            &:nth-child( 3n + 3 ) {
+                display: block;
+                margin: 0 auto;
             }
         }
     }

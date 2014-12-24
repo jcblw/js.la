@@ -1,13 +1,16 @@
 
 
 var $ = window.jQuery = require( 'jquery' ),
-    flickr = require( './flickrphotos' );
+    flickr = require( './flickrphotos' ),
+    hero = require( './hero' );
 
 // monkey patch jquery plugins
 require( './jquery.fancybox.pack.js' );
 require( './jquery.fancybox-media.js' );
 
 $(function() {
+
+    hero();
 
     flickr.addPhotos(); // this starts the script
 

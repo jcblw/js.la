@@ -2,4 +2,4 @@ h2#speakers Speakers
 
 ul.jsla-speakers-list
     each speaker in speakers
-        != partial("_speaker", {title: speaker.title, speaker: speaker.name, description: speaker.description, twitter: speaker.twitter, github: speaker.github, image: speaker.image, video: speaker.video})
+        != partial("_speaker", speaker )

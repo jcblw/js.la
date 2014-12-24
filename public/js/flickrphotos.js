@@ -1,4 +1,4 @@
-
+// this gets called to find all elements with data-flickr
 exports.addPhotos = function( ) {
     // execute after page has loaded
 
@@ -12,6 +12,7 @@ exports.addPhotos = function( ) {
 
     els = Array.prototype.slice.call( els, 0 ); //normal arrays are better
 
+    // makes an array of urls
     urls = els.map( getUrls );
     getJSONP( urls );
 };
@@ -20,10 +21,12 @@ function getUrls( el ) {
     return el.getAttribute( 'data-flickr' ); // this should have the url in it
 }
 
-function createScriptEl( url ) {
+var createScriptEl =
+module.exports.createScriptEl = function ( url, callback ) {
     var script = document.createElement( 'script' ),
         id = '_flickr' + ( Math.floor( Math.random() * 5000 ) );
-    window[ id ] = handleCallback.bind( null, id, url ); // this is the callback for the api
+    window[ id ] = typeof callback === 'function' ? 
+        callback.bind( null, id, url ) : handleCallback.bind( null, id, url ); // this is the callback for the api
     script.src = url + '&jsoncallback=' + id;
     return script; 
 }
@@ -34,40 +37,42 @@ function appendEl( el, parent ) {
 }
 
 function getJSONP( urls ) {
+    // maps a bunch of script tags { DOM node Object } into an array
+    // each on links to a JSONP endpoint with a unique id
     var els = urls.map( createScriptEl ); 
+    // appends script tags
     els.forEach( appendEl );
 }
 
 function handleCallback( id, url, data ){
     delete window[ id ]; // cleanup
+    // finds the data-flickr el, and appends data to it
     addToPage( data, document.querySelector( '[data-flickr="' + url + '"]') );
 }
 
 function appendPhoto( el, photo ) {
-
     var link = document.createElement( 'a' ),
         img = document.createElement( 'img' );
 
     link.rel = 'lightbox';
-    link.href = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "z.jpg";
-    img.alt = photo.title;
-    img.src = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "t.jpg",
+    link.href = getPhotoLink( photo );
+    link.setAttribute( 'style', 'background-image: url(' + getPhotoSRC( photo ) + ')' )
 
-    appendEl( img, link );
     appendEl( link, el );
 
 }
 
+var getPhotoLink =
+module.exports.getPhotoLink = function( photo ) {
+    return "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "z.jpg";
+}
+
+var getPhotoSRC =
+module.exports.getPhotoSRC = function( photo ) {
+    return "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "t.jpg";
+}
+
 function addToPage( resp, el ) {
-    var header = document.createElement( 'h1' ),
-        center = document.createElement( 'center' ),
-        br = document.createElement( 'br' );
-
-    center.innerText = "Photos";
-    // adding header to dom
-    appendEl( center, header );
-    appendEl( header, el );
-    appendEl( br, el );
-
+    // each photo
     resp.photos.photo.forEach( appendPhoto.bind( null, el ) );
 }

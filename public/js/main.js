@@ -2,7 +2,7 @@
 
 var $ = window.jQuery = require( 'jquery' ),
     flickr = require( './flickrphotos' ),
-    hero = require( './hero' );
+    hero = require( './components/hero' );
 
 // monkey patch jquery plugins
 require( './jquery.fancybox.pack.js' );

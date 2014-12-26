@@ -21,8 +21,6 @@ function addPhotos( el, resp ) {
     var styles = window.getComputedStyle( el, null ),
         background = styles.background.split( 'url(' ).pop( ).split( ')' ).shift()
 
-    console.log( 'photos', resp.photos.photo )
-
     cyclePhotos( el, {
         style: getStyle.bind( null, background ),
         photos: resp.photos.photo,

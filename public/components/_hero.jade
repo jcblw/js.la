@@ -17,7 +17,7 @@ header.jsla-hero.layer-1( data-photos=heroPhotos )
             ul.jsla-hero-speakers.layer-2
                 // loop here 
                 each speaker in public._data.current.speakers
-                    != partial("_speaker-condensed", {title: speaker.title, speaker: speaker.name, description: speaker.description, twitter: speaker.twitter, github: speaker.github, image: speaker.image, video: speaker.video})
+                    != partial("speakers/_speaker-condensed", {title: speaker.title, speaker: speaker.name, description: speaker.description, twitter: speaker.twitter, github: speaker.github, image: speaker.image, video: speaker.video})
 
             != partial( "_action-buttons", { titoUrl: titoUrl } )
             if sponsors

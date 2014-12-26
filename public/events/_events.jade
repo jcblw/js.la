@@ -11,9 +11,9 @@ div.jsla-toplevel-container.jsla-event-container
 
         ul.jsla-speakers-list
             each speaker in event.speakers
-                != partial("../_speaker", speaker )
+                != partial("../components/speakers/_speaker", speaker )
 
-        != partial( "../_sponsors-box", { sponsors: event.sponsors } )
+        != partial( "../components/_sponsors-box", { sponsors: event.sponsors } )
 
         if event.flickr
             div.jsla-event-photos.jsla-content-section.layer-2( data-flickr=event.flickr )

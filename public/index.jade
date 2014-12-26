@@ -1,4 +1,4 @@
-!= partial("_hero", public._data.current )
+!= partial("components/_hero", public._data.current )
 
 if public._data.current.offmonth
 
@@ -46,12 +46,12 @@ else
     div.jsla-current-event( id="current-event" )
 
         div.jsla-toplevel-container
-            != partial("_speakers", public._data.current )
+            != partial("components/speakers/_list", public._data.current )
         div.jsla-toplevel-container
-            != partial( "_action-buttons", public._data.current )
-            != partial("_map", public._data.current.host )
-            != partial( "_sponsors-box", { sponsors: public._data.current.sponsors } )
-
-            != partial("_want-to-present")
-            != partial( "_action-buttons", public._data.current )
+            != partial( "components/_action-buttons", public._data.current )
+            != partial( "components/_drinks" )
+            != partial("components/_map", public._data.current.host )
+            != partial( "components/_sponsors-box", { sponsors: public._data.current.sponsors } )
+            != partial("components/_want-to-present")
+            != partial( "components/_action-buttons", public._data.current )
 

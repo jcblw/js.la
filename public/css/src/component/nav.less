@@ -1,0 +1,58 @@
+nav.jsla-topnav {
+    position: fixed; // so we dont take up space
+    top: 0;
+    z-index: 11!important; // bump up one
+}
+
+nav.jsla-yearnav {
+    position: fixed;
+    top: 31px;
+    z-index: 12!important; // overiding pure-css
+    line-height: 50px!important;
+    text-align: center;
+    ul li a {
+        color: @secondary;
+    }
+}
+
+nav.jsla-topnav > ul {
+    display: none!important;
+    text-align: center;
+}
+
+nav.jsla-topnav .jsla-mobile-menu {
+    font-size: 1.5em;
+    padding-left: 1em;
+    line-height: 2em;
+}
+
+nav.jsla-topnav .jsla-mobile-menu i {
+    vertical-align: middle;
+}
+
+nav.jsla-topnav > ul li,
+nav.jsla-topnav > ul li a,
+nav.jsla-topnav .jsla-mobile-menu:focus ~ ul {
+    display: block!important;
+}
+
+@media screen and ( min-width: 600px ) {
+    nav.jsla-topnav {
+        text-align: center;
+        font-size: .8em;
+    }
+    
+    nav .jsla-mobile-menu {
+        display: none;
+    }
+
+    nav.jsla-topnav > ul {
+        display: inline-block!important;
+    }
+
+    nav.jsla-topnav > ul li,
+    nav.jsla-topnav > ul li a {
+        display: inline-block!important;
+    }
+    
+}

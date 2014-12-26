@@ -2,33 +2,28 @@
     margin: 1em auto;
     display: table;
     font-size: .8em;
-    text-align: left;
-    .jsla-sponsors {
-        list-style-type: none;
-        padding: 0;
-        margin: 3px 0;
-        display: table;
-        .jsla-sponsor {
-            background: white;
-            width: 275px;
-            height: 100px;
-            position: relative;
-            a {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-size: cover;
-                background-position: center center;
-            }
-            &:first-child {
-                border-right: 1px solid @lightGrey;
-            }
-            &:nth-child( 3n + 3 ) {
-                display: block;
-                margin: 0 auto;
-            }
-        }
-    }
+    text-align: center;
+}
+
+.jsla-sponsors-box .jsla-sponsors {
+    list-style-type: none;
+    padding: 0;
+    margin: 3px 0;
+}
+
+.jsla-sponsors-box .jsla-sponsors .jsla-sponsor {
+    background: white;
+    width: 275px;
+    height: 100px;
+    position: relative;
+}
+
+.jsla-sponsors-box .jsla-sponsors .jsla-sponsor a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
 }

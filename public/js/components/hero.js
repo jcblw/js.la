@@ -1,5 +1,5 @@
 
-var flickr = require( './flickrphotos' ),
+var flickr = require( '../flickrphotos' ),
     EventEmitter = require( 'eventemitter2').EventEmitter2,
     bus = new EventEmitter(),
     raf = require( 'raf' )

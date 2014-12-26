@@ -6,6 +6,7 @@
     text-align: center;
     display: table;
     width: 100%;
+    padding-top: 60px;
     padding-bottom: 2em;
 }
 
@@ -51,41 +52,50 @@
 }
 
 .jsla-hero-speakers {
-    list-style-type: none;
-    background: white;
-    padding: 0;
-    .jsla-speaker {
-        min-height: 35px;
-        position: relative;
-        border-bottom: 1px solid @lightGrey;
-    }
-    .jsla-speaker .jsla-speaker-details {
-        margin-left:  35px;
-    } 
-    .jsla-speaker .jsla-avatar {
-        height: 35px;
-        width: 35px;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-    .jsla-speaker h1,
-    .jsla-speaker h2 {
-        line-height: 35px;
-        margin: 0;
-        font-size: 1em;
-        padding: 0 1em;
-        font-weight: 500;
-        text-align: left;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+    display: none;
+}
 
-    .jsla-speaker h2 {
-        color: @mediumGrey;
-        font-size: 1em;
+@media screen and ( min-width: 450px ) {
+    .jsla-hero-speakers {
+        display: block;
+        list-style-type: none;
+        background: white;
+        padding: 0;
+        .jsla-speaker {
+            min-height: 35px;
+            position: relative;
+            border-bottom: 1px solid @lightGrey;
+        }
+        .jsla-speaker .jsla-speaker-details {
+            margin-left:  35px;
+        } 
+        .jsla-speaker .jsla-avatar {
+            height: 35px;
+            width: 35px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .jsla-speaker h1,
+        .jsla-speaker h2 {
+            line-height: 35px;
+            margin: 0;
+            font-size: 1em;
+            padding: 0 1em;
+            font-weight: 500;
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        .jsla-speaker h2 {
+            color: @mediumGrey;
+            font-size: 1em;
+        }
     }
 }
+
+
 
 

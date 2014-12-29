@@ -1,12 +1,14 @@
 // this gets called to find all elements with data-flickr
-exports.addPhotos = function( ) {
+exports.addPhotos = function( callback ) {
     // execute after page has loaded
+    callback = callback || function noop() {};
 
     var els = document.querySelectorAll( '[data-flickr]' ),
         urls;
 
     // dont execute if not flickr els are found
     if ( !els.length ) {
+        callback( new Error( 'No [data-flickr] targets found' ), true );
         return;
     }
 
@@ -14,7 +16,7 @@ exports.addPhotos = function( ) {
 
     // makes an array of urls
     urls = els.map( getUrls );
-    getJSONP( urls );
+    getJSONP( urls, callback );
 };
 
 function getUrls( el ) {
@@ -36,12 +38,13 @@ function appendEl( el, parent ) {
     parent.appendChild( el );
 }
 
-function getJSONP( urls ) {
+function getJSONP( urls, callback ) {
     // maps a bunch of script tags { DOM node Object } into an array
     // each on links to a JSONP endpoint with a unique id
     var els = urls.map( createScriptEl ); 
     // appends script tags
     els.forEach( appendEl );
+    callback( null, true );
 }
 
 function handleCallback( id, url, data ){

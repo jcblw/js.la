@@ -7,19 +7,24 @@ var flickr = require( '../flickrphotos' ),
 module.exports = function( ) {
     var hero = document.getElementsByClassName( 'jsla-hero' )[ 0 ]
 
-    // check for backgroundBlendMode support
+    // check for support
+    if ( !('backgroundBlendMode' in document.body.style) ){
+        setTimeout( bus.emit.bind( bus, 'not supprted' ), 0 )
+        return bus        
+    }
+
 
     if ( hero ) {
         getPhotos( hero )
         bus.once( 'hero:handlePhotos', addPhotos.bind( null, hero ) )
     }
 
-    return bus;
+    return bus
 }
 
 function addPhotos( el, resp ) {
     var styles = window.getComputedStyle( el, null ),
-        background = styles.background.split( 'url(' ).pop( ).split( ')' ).shift()
+        background = styles.backgroundImage.split( 'url(' ).pop( ).split( ')' ).shift()
 
     cyclePhotos( el, {
         style: getStyle.bind( null, background ),

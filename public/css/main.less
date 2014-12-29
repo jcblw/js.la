@@ -42,16 +42,24 @@ body {
     position: relative;
     max-width: 600px;
     margin: 0 auto;
-    padding: 0 1em;
+    padding: 0.01em 1em; // height padding allows for content margins to work
     .clearfix();
     &.jsla-content-page {
         margin: 50px auto;
     }
     &.jsla-event-container {
-        margin-top: 100px; // accomidates navbars
+        margin-top: 120px; // accomidates navbars
     }
 }
 
 * {
     box-sizing: border-box;
+}
+
+@media screen and ( min-width: 600px ) {
+
+    .jsla-toplevel-container.jsla-event-container {
+        margin-top: 100px;
+    }
+
 }

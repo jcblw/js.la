@@ -6,6 +6,7 @@ var $ = window.jQuery = require( 'jquery' ),
     fancyboxOptions = {
         openEffect  : 'none',
         closeEffect : 'none',
+        showNavArrows: false,
         helpers : {
             media : {}
         }
@@ -19,6 +20,7 @@ $(function() {
     
     hero();
     flickr.addPhotos(); // this starts the script
-    $('a[rel=lightbox]').fancybox( fancyboxOptions );
+    $( 'a[rel=lightbox-video]' ).fancybox( fancyboxOptions );
+    $('a[rel=lightbox]').fancybox( );
 
 });

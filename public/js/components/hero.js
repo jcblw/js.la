@@ -4,8 +4,8 @@ var flickr = require( '../flickrphotos' ),
     bus = new EventEmitter(),
     raf = require( 'raf' )
 
-module.exports = function( ) {
-    var hero = document.getElementsByClassName( 'jsla-hero' )[ 0 ]
+module.exports.attach = function( selector ) {
+    var hero = document.querySelector( selector );
 
     // check for support
     if ( !('backgroundBlendMode' in document.body.style) ){

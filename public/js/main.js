@@ -3,7 +3,8 @@
 var $ = window.jQuery = require( 'jquery' ),
     merge = require( 'merge' ),
     flickr = require( './flickrphotos' ),
-    hero = require( './components/hero' );
+    hero = require( './components/hero' ),
+    nav = require( './components/nav' );
 
 // monkey patch jquery plugins
 require( './jquery.fancybox.pack.js' );
@@ -25,8 +26,10 @@ $(function() {
             }
         };
 
-    
-    hero();
+    // attach components
+    nav.attach( '.jsla-mobile-menu' );
+    hero.attach( '.jsla-hero' );
+
     flickr.addPhotos(); // this starts the script
     $( 'a[rel=lightbox-video]' ).fancybox( merge( {}, fancyboxOptions, { 
         showNavArrows: false 
